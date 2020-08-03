@@ -31,12 +31,12 @@ def deploy(){
 					{
 						sh deployProps.dockerContainerRm
 					}
+				sh deployProps.dockerPull
+				sh deployProps.dockerRestart
 				}catch (err)
 					{
 						echo 'DELETE FAILED'
 					}
-			sh deployProps.dockerPull
-			sh deployProps.dockerRestart
 			echo 'DEPLOY SUCCESS'				
 		}
 return this
