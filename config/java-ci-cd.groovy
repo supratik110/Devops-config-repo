@@ -34,6 +34,8 @@ def deploy(){
 					{
 						echo 'DELETE FAILED'
 					}
+			sh deployProps.dockerLogin
+			sh deployProps.dockerPull
 			sh deployProps.dockerRestart
 			echo 'DEPLOY SUCCESS'				
 		}
