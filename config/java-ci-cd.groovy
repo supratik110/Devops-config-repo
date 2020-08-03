@@ -22,6 +22,7 @@ def dockerPush(){
 			catch (e) {
 					status = "FAILED"
 						} 
+			echo 'PUSH SUCCESS'	
 		}
 def deploy(){
 			try	{
@@ -31,6 +32,7 @@ def deploy(){
 					{
 						sh deployProps.dockerContainerRm
 					}
+				sh deployProps.dockerLogin
 				sh deployProps.dockerPull
 				sh deployProps.dockerRestart
 				}catch (err)
