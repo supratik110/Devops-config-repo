@@ -28,6 +28,13 @@ pipeline {
 			}
 				}
 			}
+			stage('PUSH DOCKER FILES') {
+                  steps {
+                       script {
+			configProp.dockerPush()
+			       }
+				}
+			}		 
 			stage('DEPLOY') {
                   steps {
 		  	script {
