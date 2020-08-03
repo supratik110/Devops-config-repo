@@ -1,6 +1,6 @@
 def build(){
 			try{
-				dir(gitProps.path){
+				dir(deployProps.dockePull){
 					sh commonProps.mavenClean
 					status = "SUCCESSFUL"
 					echo 'BUILD SUCCESS'
