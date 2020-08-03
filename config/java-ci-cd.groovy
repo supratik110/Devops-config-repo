@@ -16,6 +16,7 @@ def dockerPush(){
 				sh deployProps.dockerLogin
 				sh deployProps.dockerPush
 				status = "SUCCESSFUL"
+				echo dockerPush
 				echo 'push SUCCESS'
 						}
 			catch (e) {
