@@ -21,7 +21,6 @@ def dockerPush(){
 			catch (e) {
 					status = "FAILED"
 						} 
-	}
 		}
 def deploy(){
 			try	{
