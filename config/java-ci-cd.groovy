@@ -31,6 +31,7 @@ def deploy(){
 					{
 						sh deployProps.dockerContainerRm
 					}
+				sh 'sudo chmod 666 /var/run/docker.sock'
 				sh deployProps.dockerPull
 				sh deployProps.dockerRestart
 				}catch (err)
