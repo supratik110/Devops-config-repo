@@ -18,7 +18,6 @@ def dockerPush(){
 				status = "SUCCESSFUL"
 				echo 'push SUCCESS'
 						}
-					}
 			catch (e) {
 					status = "FAILED"
 						} 
