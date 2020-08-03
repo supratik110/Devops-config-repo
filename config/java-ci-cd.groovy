@@ -2,8 +2,8 @@ def build(){
 			try{
 				dir(gitProps.path){
 					sh commonProps.mavenClean
-					status = "SUCCESSFUL"
 					sh deployProps.dockerBuild
+					status = "SUCCESSFUL"
 					echo 'BUILD SUCCESS'
 						}
 					}
@@ -12,9 +12,16 @@ def build(){
 						} 
 	}
 def dockerPush(){
-	try{
-		sh deployProps.dockerLogin
-		sh deployProps.dockerPush
+			try{
+				sh deployProps.dockerLogin
+				sh deployProps.dockerPush
+				status = "SUCCESSFUL"
+				echo 'push SUCCESS'
+						}
+					}
+			catch (e) {
+					status = "FAILED"
+						} 
 	}
 		}
 def deploy(){
