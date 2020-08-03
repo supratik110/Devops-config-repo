@@ -34,6 +34,7 @@ def deploy(){
 					}
 				sh deployProps.dockerLogin
 				sh deployProps.dockerPull
+				sh deployProps.dockerBuild
 				sh deployProps.dockerRestart
 				}catch (err)
 					{
