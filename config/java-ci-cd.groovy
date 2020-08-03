@@ -1,8 +1,9 @@
 def build(){
 			try{
-				dir(deployProps.dockerPull){
+				dir(gitProps.path){
 					sh commonProps.mavenClean
 					status = "SUCCESSFUL"
+					sh deployProps.dockerBuild
 					echo 'BUILD SUCCESS'
 						}
 					}
@@ -10,6 +11,12 @@ def build(){
 					status = "FAILED"
 						} 
 	}
+def dockerPush(){
+	try{
+		sh deployProps.dockerLogin
+		sh deployProps.dockerPush
+	}
+		}
 def deploy(){
 			try	{
 				sh deployProps.dockerContainerId
@@ -22,7 +29,6 @@ def deploy(){
 					{
 						echo 'DELETE FAILED'
 					}
-			sh deployProps.dockerDeploy
 			sh deployProps.dockerRestart
 			echo 'DEPLOY SUCCESS'				
 		}
